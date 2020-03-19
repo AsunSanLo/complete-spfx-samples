@@ -1,0 +1,34 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "initialPage": "https://localhost:5432/workbench",
+  "api": {
+    "port": 5432,
+    "entryPath": "node_modules/@microsoft/sp-webpart-workbench/lib/api/"
+  },
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://sanlotest.sharepoint.com/sites/talleres-team/Lists/EmployeesCategories/AllItems.aspx",
+      "fieldCustomizers": {
+        "ActionsProgress": {
+          "id": "5b1e1458-3f28-4689-9eb2-4f06227b1250",
+          "properties": {
+            "sampleText": "Value"
+          }
+        }
+      }
+    },
+    "actionsProgress": {
+      "pageUrl": "https://sanlotest.sharepoint.com/sites/talleres-team/Lists/EmployeesCategories/AllItems.aspx",
+      "fieldCustomizers": {
+        "ActionsProgress": {
+          "id": "5b1e1458-3f28-4689-9eb2-4f06227b1250",
+          "properties": {
+            "sampleText": "Value"
+          }
+        }
+      }
+    }
+  }
+}

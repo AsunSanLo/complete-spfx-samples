@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <Field ID="{5ce0de56-97c7-400e-a9d6-875a6e8f851e}"
+            Name="PCActionsProgress"
+            DisplayName="PC Actions Progress"
+            Type="Number"
+            Min="0"
+            Required="FALSE"
+            Group="PC SPFx Columns"
+            ClientSideComponentId="5b1e1458-3f28-4689-9eb2-4f06227b1250">
+    </Field>
+</Elements>
