@@ -9,12 +9,12 @@
   },
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://sanlotest.sharepoint.com/sites/talleres-team/Lists/EmployeesCategories/AllItems.aspx",
-      "fieldCustomizers": {
-        "ActionsProgress": {
-          "id": "5b1e1458-3f28-4689-9eb2-4f06227b1250",
+      "pageUrl": "https://sanlotest.sharepoint.com/sites/talleres-team/SitePages/Welcome.aspx",
+      "customActions": {
+        "b50ea6d4-148b-4703-9026-b65b3edc48a6": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
           "properties": {
-            "sampleText": "Value"
+            "testMessage": "Test message"
           }
         }
       }
@@ -26,6 +26,17 @@
           "id": "5b1e1458-3f28-4689-9eb2-4f06227b1250",
           "properties": {
             "sampleText": "Value"
+          }
+        }
+      }
+    },
+    "actionsNotification": {
+      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "customActions": {
+        "b50ea6d4-148b-4703-9026-b65b3edc48a6": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
           }
         }
       }
