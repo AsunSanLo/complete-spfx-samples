@@ -45,7 +45,7 @@ export default class EmployeeActions extends React.Component<IEmployeeActionsPro
   public loadActions = () => {
     sp.web.lists.getByTitle("EmployeesActions")
       .items
-      .select("ID, Title, MeetingDate, ActionCategory/ID, ActionCategory/Title").expand("ActionCategory/Id")
+      .select("ID, Title, EventDate, ActionCategory/ID, ActionCategory/Title").expand("ActionCategory/Id")
       .get<IEmployeeAction[]>().then(data => {
         this.setState({ actions: data });
       });

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styles from './ActionsMessage.module.scss';
-import { Button, PrimaryButton } from 'office-ui-fabric-react/lib/Button';
+import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 
 export class ActionsMessage extends React.Component<{}, {}> {
 

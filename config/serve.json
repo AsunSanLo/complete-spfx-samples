@@ -9,12 +9,13 @@
   },
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://sanlotest.sharepoint.com/sites/talleres-team/SitePages/Welcome.aspx",
+      "pageUrl": "https://sanlotest.sharepoint.com/sites/talleres-team/Lists/EmployeesCategories/AllItems.aspx",
       "customActions": {
-        "b50ea6d4-148b-4703-9026-b65b3edc48a6": {
-          "location": "ClientSideExtension.ApplicationCustomizer",
+        "96a05e18-3876-47e9-9e12-7806233116c0": {
+          "location": "ClientSideExtension.ListViewCommandSet.CommandBar",
           "properties": {
-            "testMessage": "Test message"
+            "sampleTextOne": "One item is selected in the list",
+            "sampleTextTwo": "This command is always visible."
           }
         }
       }
@@ -31,12 +32,24 @@
       }
     },
     "actionsNotification": {
-      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "pageUrl": "https://sanlotest.sharepoint.com/sites/talleres-team/SitePages/Welcome.aspx",
       "customActions": {
         "b50ea6d4-148b-4703-9026-b65b3edc48a6": {
           "location": "ClientSideExtension.ApplicationCustomizer",
           "properties": {
             "testMessage": "Test message"
+          }
+        }
+      }
+    },
+    "showActions": {
+      "pageUrl": "https://sanlotest.sharepoint.com/sites/talleres-team/Lists/EmployeesCategories/AllItems.aspx",
+      "customActions": {
+        "96a05e18-3876-47e9-9e12-7806233116c0": {
+          "location": "ClientSideExtension.ListViewCommandSet.CommandBar",
+          "properties": {
+            "sampleTextOne": "One item is selected in the list",
+            "sampleTextTwo": "This command is always visible."
           }
         }
       }
