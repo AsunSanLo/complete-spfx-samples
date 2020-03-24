@@ -1,5 +1,5 @@
 export class NewAction {
-  Title: string;
-  EventDate: Date;
-  ActionCategoryId: number;
+  public Title: string;
+  public EventDate: Date;
+  public ActionCategoryId: number;
 }

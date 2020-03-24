@@ -5,15 +5,16 @@ import "@pnp/sp/webs";
 import "@pnp/sp/lists/web";
 import "@pnp/sp/items";
 import { override } from '@microsoft/decorators';
-import { IEmployeeAction } from '../code/model/IEmployeeAction';
+import { IEmployeeAction } from '../../../_shared/code/model/IEmployeeAction';
 import { Separator } from 'office-ui-fabric-react/lib/Separator';
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { Dropdown, IDropdown, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
+import { Dropdown, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
 import { DatePicker } from 'office-ui-fabric-react/lib/DatePicker';
-import { ActionsList } from './ActionsList/ActionsList';
-import { ICategory } from '../code/model/ICategory';
+import { ActionsList } from '../../../_shared/components/ActionsList/ActionsList';
+import { ICategory } from '../../../_shared/code/model/ICategory';
 import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
-import { NewAction } from '../code/model/NewAction';
+import { NewAction } from '../../../_shared/code/model/NewAction';
+import styles from './EmployeeActions.module.scss';
 
 export interface IEmployeeActionsState {
   actions: Array<IEmployeeAction>;
@@ -29,7 +30,7 @@ export default class EmployeeActions extends React.Component<IEmployeeActionsPro
     this.state = {
       actions: [],
       categories: [],
-    }
+    };
   }
 
   @override
@@ -45,15 +46,18 @@ export default class EmployeeActions extends React.Component<IEmployeeActionsPro
   public loadActions = () => {
     sp.web.lists.getByTitle("EmployeesActions")
       .items
-      .select("ID, Title, EventDate, ActionCategory/ID, ActionCategory/Title").expand("ActionCategory/Id")
+      .select("ID, Title, EventDate, ActionCategory/ID, ActionCategory/Title")
+      .expand("ActionCategory/Id")
       .get<IEmployeeAction[]>().then(data => {
         this.setState({ actions: data });
       });
   }
 
   public save = () => {
-    alert("ACTION TO SAVE: " + JSON.stringify(this._newAction));
-    sp.web.lists.getByTitle("EmployeesActions").items.add(this._newAction).then(() => {
+    sp.web.lists.getByTitle("EmployeesActions")
+    .items
+    .add(this._newAction)
+    .then(() => {
       this.loadActions();
     });
   }
@@ -71,11 +75,11 @@ export default class EmployeeActions extends React.Component<IEmployeeActionsPro
 
   public render(): React.ReactElement<IEmployeeActionsProps> {
     return (
-      <div>
+      <div className={styles.employeeActions}>
         <ActionsList actions={this.state.actions} />
-
+        <br/><br/>
         <Separator>Añadir acción para el empleado</Separator>
-        <div>
+        <div className={styles.actionForm}>
 
           <Dropdown
             label="Categoría"
@@ -93,6 +97,7 @@ export default class EmployeeActions extends React.Component<IEmployeeActionsPro
             label="Día del evento"
             onSelectDate={this.onDateChange}
           />
+          <br/>
           <PrimaryButton text="Añadir" onClick={this.save} />
         </div>
       </div>

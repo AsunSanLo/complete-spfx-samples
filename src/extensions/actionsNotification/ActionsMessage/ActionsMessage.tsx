@@ -1,13 +1,15 @@
 import * as React from 'react';
 import styles from './ActionsMessage.module.scss';
 import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
-
-export class ActionsMessage extends React.Component<{}, {}> {
+export interface IActionsMessageProps {
+  siteUrl: string;
+}
+export class ActionsMessage extends React.Component<IActionsMessageProps, {}> {
 
   public render() {
     return  (<div className={styles.ActionsMessage}>
-      <span>Take a look at our new employee actions: </span>
-      <PrimaryButton style={{backgroundColor: "red"}} href="https://sanlotest.sharepoint.com/sites/talleres-team/lists/EmployeesActions" >View actions</PrimaryButton>
+      <span>Échale un vistazo a nuestras acciones para el empleado: </span>
+      <PrimaryButton style={{backgroundColor: "red"}} href={`${this.props.siteUrl}/lists/EmployeesActions`}>Ver acciones</PrimaryButton>
     </div>);
   }
 }

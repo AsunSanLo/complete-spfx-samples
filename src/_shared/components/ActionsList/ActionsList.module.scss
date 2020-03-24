@@ -1,0 +1,17 @@
+.actionsTable {
+  margin: 12px;
+  border-collapse: collapse;
+  width: calc(100% - 24px);
+
+  tr:nth-child(2n) {
+    background-color: #fafafa;
+  }
+
+  td {
+    padding: 12px 6px;
+    border-bottom: 1px solid #e1e1e1;
+  }
+  i {
+    margin-right: 6px;
+  }
+}

@@ -3,6 +3,6 @@ import { ICategory } from "./ICategory";
 export interface IEmployeeAction {
   Title: string;
   ID: number;
-  EventDate: Date;
+  EventDate: string;
   ActionCategory: ICategory;
 }

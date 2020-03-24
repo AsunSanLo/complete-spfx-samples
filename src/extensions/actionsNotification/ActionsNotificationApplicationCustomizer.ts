@@ -6,7 +6,7 @@ import {
 import { Dialog } from '@microsoft/sp-dialog';
 
 import * as strings from 'ActionsNotificationApplicationCustomizerStrings';
-import {ActionsMessage} from './ActionsMessage/ActionsMessage';
+import {ActionsMessage, IActionsMessageProps} from './ActionsMessage/ActionsMessage';
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 // import { setup as pnpSetup } from "@pnp/common";
@@ -24,13 +24,14 @@ export default class ActionsNotificationApplicationCustomizer
   public onInit(): Promise<void> {
     this.showActionsNotification();
     return super.onInit();
-
   }
 
   private showActionsNotification = () => {
     const topPlaceholder = this.context.placeholderProvider.tryCreateContent(PlaceholderName.Top);
 
-    const elem = React.createElement(ActionsMessage);
+    const elem = React.createElement(ActionsMessage, {
+      siteUrl: this.context.pageContext.site.absoluteUrl
+    } as IActionsMessageProps);
     ReactDOM.render(elem, topPlaceholder.domElement);
   }
 }
