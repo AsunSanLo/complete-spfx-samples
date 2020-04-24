@@ -12,7 +12,7 @@ import { Dropdown, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
 import { DatePicker } from 'office-ui-fabric-react/lib/DatePicker';
 import { ActionsList } from '../../../_shared/components/ActionsList/ActionsList';
 import { ICategory } from '../../../_shared/code/model/ICategory';
-import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
+import { PrimaryButton, IconButton, DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import { NewAction } from '../../../_shared/code/model/NewAction';
 import styles from './EmployeeActions.module.scss';
 
@@ -55,11 +55,11 @@ export default class EmployeeActions extends React.Component<IEmployeeActionsPro
 
   public save = () => {
     sp.web.lists.getByTitle("EmployeesActions")
-    .items
-    .add(this._newAction)
-    .then(() => {
-      this.loadActions();
-    });
+      .items
+      .add(this._newAction)
+      .then(() => {
+        this.loadActions();
+      });
   }
 
   public onCategoryChange = (event, option: IDropdownOption) => {
@@ -76,11 +76,10 @@ export default class EmployeeActions extends React.Component<IEmployeeActionsPro
   public render(): React.ReactElement<IEmployeeActionsProps> {
     return (
       <div className={styles.employeeActions}>
-        <ActionsList actions={this.state.actions} />
-        <br/><br/>
+        <ActionsList graphApiFactory={this.props.graphFactory} actions={this.state.actions} />
+        <br /><br />
         <Separator>Añadir acción para el empleado</Separator>
         <div className={styles.actionForm}>
-
           <Dropdown
             label="Categoría"
             onChange={this.onCategoryChange}
@@ -97,7 +96,7 @@ export default class EmployeeActions extends React.Component<IEmployeeActionsPro
             label="Día del evento"
             onSelectDate={this.onDateChange}
           />
-          <br/>
+          <br />
           <PrimaryButton text="Añadir" onClick={this.save} />
         </div>
       </div>

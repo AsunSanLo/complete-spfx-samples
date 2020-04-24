@@ -12,6 +12,7 @@ import EmployeeActions from './components/EmployeeActions';
 import { IEmployeeActionsProps } from './components/IEmployeeActionsProps';
 import { setup as pnpSetup } from "@pnp/common";
 import { override } from '@microsoft/decorators';
+import { MSGraphClientFactory} from "@microsoft/sp-http";
 
 export interface IEmployeeActionsWebPartProps {
   description: string;
@@ -30,10 +31,13 @@ export default class EmployeeActionsWebPart extends BaseClientSideWebPart <IEmpl
   }
 
   public render(): void {
+    const graphFactory = this.context.serviceScope.consume(MSGraphClientFactory.serviceKey);
+
+
     const element: React.ReactElement<IEmployeeActionsProps> = React.createElement(
       EmployeeActions,
       {
-        description: this.properties.description
+        graphFactory: graphFactory
       }
     );
 

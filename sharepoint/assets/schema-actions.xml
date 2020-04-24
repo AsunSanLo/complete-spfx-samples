@@ -1,0 +1,47 @@
+<List xmlns:ows="Microsoft SharePoint"
+   Title="EmployeesActions"
+   EnableContentTypes="TRUE"
+   FolderCreation="FALSE"
+   Direction="$Resources:Direction;"
+   Url="Lists/EmployeesActions"
+   BaseType="0"
+   xmlns="http://schemas.microsoft.com/sharepoint/">
+ <MetaData>
+   <ContentTypes>
+   <ContentType ID="0x010028C9C88BBC2B481FA2513DBF69564062"
+           Name="Employee Action CT"
+            Group="PC SPFx CTs"
+           Description="Employee Action CT">
+       <FieldRefs>
+          <FieldRef Name="Title" />
+          <FieldRef ID="03d319e4-74d2-4276-810b-72a5ec2149f8" />
+          <FieldRef ID="f44b618d-6456-43a0-8862-8b34b97d9e68" />
+       </FieldRefs>
+   </ContentType>
+   </ContentTypes>
+   <Fields></Fields>
+   <Views>
+     <View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/images/generic.png" Url="AllItems.aspx">
+       <XslLink Default="TRUE">main.xsl</XslLink>
+       <JSLink>clienttemplates.js</JSLink>
+       <RowLimit Paged="TRUE">30</RowLimit>
+       <Toolbar Type="Standard" />
+       <ViewFields>
+            <FieldRef Name="Title"></FieldRef>
+            <FieldRef Name="PCEventDate"></FieldRef>
+            <FieldRef Name="ActionCategory"></FieldRef>
+       </ViewFields>
+       <Query>
+         <OrderBy>
+           <FieldRef Name="ID" />
+         </OrderBy>
+       </Query>
+     </View>
+   </Views>
+   <Forms>
+     <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+     <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+     <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+   </Forms>
+ </MetaData>
+</List>

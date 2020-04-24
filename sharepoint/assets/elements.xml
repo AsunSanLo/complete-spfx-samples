@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+
+    <Field ID="{03d319e4-74d2-4276-810b-72a5ec2149f8}"
+        Name="PCEventDate"
+        DisplayName="Event Date"
+        Type="DateTime"
+        Format="DateOnly"
+        Required="TRUE"
+        StaticName="PCEventDate"
+        Group="PC SPFx Columns"/>
+
+    <Field ID="{f44b618d-6456-43a0-8862-8b34b97d9e68}"
+        Name="ActionCategory"
+        DisplayName="Action Category"
+        Type="Lookup"
+        Required="FALSE"
+        List="Lists/EmployeesCategories"
+        ShowField="Title"
+        StaticName="ActionCategory"
+        Group="PC SPFx Columns"/>
+
+    <Field ID="{0bb60495-9ecf-46de-8d39-cd5ca08f3b55}"
+        Name="PCGoal"
+        DisplayName="Goal"
+        Type="Number"
+        Required="FALSE"
+        StaticName="PCGoal"
+        Group="PC SPFx Columns"/>
+
+    <Field ID="{5ce0de56-97c7-400e-a9d6-875a6e8f851e}"
+            Name="PCActionsProgress"
+            DisplayName="PC Actions Progress"
+            Type="Number"
+            Min="0"
+            Required="FALSE"
+            Group="PC SPFx Columns"
+            ClientSideComponentId="5b1e1458-3f28-4689-9eb2-4f06227b1250">
+    </Field>
+
+   <ContentType ID="0x0100AFBCD8BFAAE74FC3A04C5F94161D693F"
+           Name="Employee Category CT"
+            Group="PC SPFx CTs"
+           Description="Employee Category CT">
+       <FieldRefs>
+          <FieldRef Name="Title" />
+          <FieldRef ID="3ebbcfd2-2cda-4d14-948a-79eb5afcbf30" />
+          <FieldRef ID="5ce0de56-97c7-400e-a9d6-875a6e8f851e" />
+       </FieldRefs>
+   </ContentType>
+
+   <ContentType ID="0x010028C9C88BBC2B481FA2513DBF69564062"
+           Name="Employee Action CT"
+            Group="PC SPFx CTs"
+           Description="Employee Action CT">
+       <FieldRefs>
+          <FieldRef Name="Title" />
+          <FieldRef ID="03d319e4-74d2-4276-810b-72a5ec2149f8" />
+          <FieldRef ID="f44b618d-6456-43a0-8862-8b34b97d9e68" />
+       </FieldRefs>
+   </ContentType>
+
+   <ListInstance
+           CustomSchema="schema-categories.xml"
+           FeatureId="00bfea71-de22-43b2-a848-c05709900100"
+           Title="EmployeesCategories"
+           Description="Lista categorías para el empleado"
+           TemplateType="100"
+           Url="Lists/EmployeesCategories">
+   </ListInstance>
+
+   <ListInstance
+           CustomSchema="schema-actions.xml"
+           FeatureId="00bfea71-de22-43b2-a848-c05709900100"
+           Title="EmployeesActions"
+           Description="Lista acciones para el empleado"
+           TemplateType="100"
+           Url="Lists/EmployeesActions">
+   </ListInstance>
+</Elements>

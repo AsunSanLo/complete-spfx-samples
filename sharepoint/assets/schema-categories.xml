@@ -1,0 +1,46 @@
+<List xmlns:ows="Microsoft SharePoint"
+   Title="EmployeesCategories"
+   EnableContentTypes="TRUE"
+   FolderCreation="FALSE"
+   Direction="$Resources:Direction;"
+   Url="Lists/EmployeesCategories"
+   BaseType="0"
+   xmlns="http://schemas.microsoft.com/sharepoint/">
+ <MetaData>
+   <ContentTypes>
+   <ContentType ID="0x0100AFBCD8BFAAE74FC3A04C5F94161D693F"
+           Name="Employee Category CT"
+            Group="PC SPFx CTs"
+           Description="Employee Category CT">
+       <FieldRefs>
+          <FieldRef Name="Title" />
+          <FieldRef ID="3ebbcfd2-2cda-4d14-948a-79eb5afcbf30" />
+          <FieldRef ID="5ce0de56-97c7-400e-a9d6-875a6e8f851e" />
+       </FieldRefs>
+   </ContentType>
+   </ContentTypes>
+   <Fields></Fields>
+   <Views>
+     <View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/images/generic.png" Url="AllItems.aspx">
+       <XslLink Default="TRUE">main.xsl</XslLink>
+       <JSLink>clienttemplates.js</JSLink>
+       <RowLimit Paged="TRUE">30</RowLimit>
+       <Toolbar Type="Standard" />
+       <ViewFields>
+            <FieldRef Name="Title"></FieldRef>
+            <FieldRef Name="PCGoal"></FieldRef>
+       </ViewFields>
+       <Query>
+         <OrderBy>
+           <FieldRef Name="ID" />
+         </OrderBy>
+       </Query>
+     </View>
+   </Views>
+   <Forms>
+     <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+     <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+     <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+   </Forms>
+ </MetaData>
+</List>
